@@ -29,7 +29,7 @@ ORANGE = (236, 145, 5)
 
 #sonido
 pygame.mixer.music. load("./assets/audio/music.wav")
-pygame.mixer.music.play(3)
+pygame.mixer.music.play(100)
 
 #texto de teclas para recorridos
 fuente = pygame.font.SysFont("Arial",20)
