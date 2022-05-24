@@ -27,13 +27,17 @@ BROWN = (131, 117, 87)
 PURPLE = (148, 82, 222)
 ORANGE = (236, 145, 5)
 
+#sonido
+pygame.mixer.music. load("./assets/audio/music.wav")
+pygame.mixer.music.play(3)
+
 #texto de teclas para recorridos
-fuente=pygame.font.SysFont("Arial",20)
-texto_teclas_preorder=fuente.render("Presione a -> preorder",0,BLACK,WHITE)
-texto_teclas_inorder=fuente.render("Presione w -> inorder",0,BLACK,WHITE)
-texto_teclas_postorder=fuente.render("Presione d -> postorder",0,BLACK,WHITE)
-texto_teclas_amplitud=fuente.render("Presione s -> amplitud",0,BLACK,WHITE)
-texto_teclas_reinicio=fuente.render("Presione espacio -> reiniciar",0,BLACK,WHITE)
+fuente = pygame.font.SysFont("Arial",20)
+texto_teclas_preorder = fuente.render("Presione a -> preorder",0,BLACK,WHITE)
+texto_teclas_inorder = fuente.render("Presione w -> inorder",0,BLACK,WHITE)
+texto_teclas_postorder = fuente.render("Presione d -> postorder",0,BLACK,WHITE)
+texto_teclas_amplitud = fuente.render("Presione s -> amplitud",0,BLACK,WHITE)
+texto_teclas_reinicio = fuente.render("Presione espacio -> reiniciar",0,BLACK,WHITE)
 #crear una variable que va a mantener el display activo
 
 display_game.fill(PINK)
