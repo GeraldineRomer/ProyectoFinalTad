@@ -2,29 +2,25 @@ from circle import circle
 from line import line
 class treeNodes:
     class Node:
-        def __init__(self,value,x,y,lix,liy,lfx,lfy):
+        def __init__(self,value,x,y):
             self.value = value
             self.left_node = None
             self.right_node = None
             self.circle = None
-            self.line = None
+            self.line_right = None
+            self.line_left = None
             self.x = x
             self.y = y
-            self.lix = lix
-            self.liy = liy
-            self.lfx = lfx
-            self.lfy = lfy
             
     def __init__(self,display):
         self.root = None
         self.lenght_nodes = 0 
         self.display = display
         self.circle_color = (149, 243, 108)
-        self.line_color = (131, 117, 87)
+        #self.line_color = (149, 243, 108)
         
-    def add(self, value, x, y,lix,liy,lfx,lfy):
-        new_node = self.Node(value,x,y,lix,liy,lfx,lfy)
-        new_node.line = line(self.display,self.line_color,lix,liy,lfx,lfy).crear()
+    def add(self, value, x, y):
+        new_node = self.Node(value,x,y)
         new_node.circle = circle(self.display,self.circle_color,value,x,y).crear()
         if self.root == None:
             self.root = new_node
@@ -35,36 +31,39 @@ class treeNodes:
                 elif value < node.value:
                     if node.left_node == None:
                         node.left_node = new_node
-                        new_node.line = line(self.display,self.line_color,lix,liy,lfx,lfy).crear()
-                        new_node.circle = circle(self.display,self.circle_color,value,x,y).crear()
+                        node.line_left = line(self.display,self.circle_color,node.x,node.y,node.left_node.x,node.left_node.y).crear()
+                        
                         return True
                     else:
                         return recorrer(value, node.left_node)
                 elif value > node.value:
                     if node.right_node == None:
                         node.right_node = new_node
-                        new_node.line = line(self.display,self.line_color,lix,liy,lfx,lfy).crear()
-                        new_node.circle = circle(self.display,self.circle_color,value,x,y).crear()
+                        node.line_right = line(self.display,self.circle_color,node.x,node.y,node.right_node.x,node.right_node.y).crear()
+                        
                         return True
                     else:
                         return recorrer(value, node.right_node)
+        
             recorrer(value, self.root)
+        
                     
     def find (self, value,color):
         def recorrer(value, node):
             if value == node.value:
-                node.line = line(self.display,color,node.lix,node.liy,node.lfx,node.lfy).crear()
                 node.circle = circle(self.display,color,value,node.x,node.y).crear()
                 return node.value
             elif value < node.value:
                 if node.left_node == None:
                     return "No existe el elemento buscado"
                 else:
+                    node.line_left = line(self.display,color,node.x,node.y,node.left_node.x,node.left_node.y).crear()
                     return recorrer(value, node.left_node)
             else:
                 if node.right_node == None:
                     return "No existe el elemento buscado"
                 else:
+                    node.line_right = line(self.display,color,node.x,node.y,node.right_node.x,node.right_node.y).crear()
                     return recorrer(value, node.right_node)
         nodo_encontrado = recorrer(value, self.root)
         #return print(nodo_encontrado)
@@ -124,4 +123,22 @@ class treeNodes:
         print(f"Amplitud -> {container_2}")
         return container_2
     
+    def actulizar_color_linea (self, value):
+        def recorrer(value, node):
+            if value == node.value:
+                node.circle = circle(self.display,self.circle_color,value,node.x,node.y).crear()
+                return node.value
+            elif value < node.value:
+                if node.left_node == None:
+                    return "No existe el elemento buscado"
+                else:
+                    node.line_left = line(self.display,self.line_color,node.x,node.y,node.left_node.x,node.left_node.y).crear()
+                    return recorrer(value, node.left_node)
+            else:
+                if node.right_node == None:
+                    return "No existe el elemento buscado"
+                else:
+                    node.line_right = line(self.display,self.line_color,node.x,node.y,node.right_node.x,node.right_node.y).crear()
+                    return recorrer(value, node.right_node)
+        nodo_encontrado = recorrer(value, self.root)
    

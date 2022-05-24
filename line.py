@@ -12,5 +12,5 @@ class line:
         self.coordenada_final = self.fx, self.fy
         
     def crear (self):
-        linea = pygame.draw.line(self.display,self.line_color,self.coordenada_inicio,self.coordenada_final,5)
+        linea = pygame.draw.line(self.display,self.line_color,self.coordenada_inicio,self.coordenada_final,1)
         
