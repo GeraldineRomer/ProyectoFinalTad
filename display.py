@@ -61,20 +61,20 @@ pygame.draw.line(display_game,BROWN,(570,304),(604,397),10)'''
 
 def agregar ():
     #crear un circulo[lugar,color,(puntoCentral x, puntoCentral y),radio]
-    tree.add(60,480,51)
-    tree.add(41,326,144)
-    tree.add(16,200,248)
-    tree.add(25,221,346)
-    tree.add(53,356,261)
-    tree.add(46,318,346)
-    tree.add(42,300,443)
-    tree.add(55,431,346)
-    tree.add(74,657,140)
-    tree.add(65,623,231)
-    tree.add(63,570,304)
-    tree.add(62,525,387)
-    tree.add(64,604,397)
-    tree.add(70,718,301)
+    tree.add(60,500,60)
+    tree.add(41,215,138) 
+    tree.add(16,115,245)
+    tree.add(25,160,373)
+    tree.add(53,314,245)
+    tree.add(46,224,373)
+    tree.add(42,300,493)
+    tree.add(55,384,373)
+    tree.add(74,714,138)
+    tree.add(65,601,245)
+    tree.add(63,491,373)
+    tree.add(62,426,493)
+    tree.add(64,555,493)
+    tree.add(70,680,373)
     
 def color_linea (list,color):
     for i in range (len(list)):
